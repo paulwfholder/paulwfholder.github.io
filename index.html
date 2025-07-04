@@ -1,0 +1,458 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Paul Holder - Cybersecurity Portfolio</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #1a1d23 0%, #2d3748 100%);
+            color: #ffffff;
+            padding: 20px;
+            min-height: 100vh;
+        }
+        
+        .portfolio-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 20px;
+            padding: 40px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+        }
+        
+        .header {
+            text-align: center;
+            margin-bottom: 40px;
+            padding-bottom: 30px;
+            border-bottom: 3px solid #00d4ff;
+        }
+        
+        .name {
+            font-size: 2.8em;
+            font-weight: 700;
+            color: #ffffff;
+            margin-bottom: 10px;
+            text-shadow: 0 0 20px rgba(0, 212, 255, 0.3);
+        }
+        
+        .tagline {
+            font-size: 1.3em;
+            color: #00d4ff;
+            font-weight: 600;
+            margin-bottom: 15px;
+        }
+        
+        .contact-info {
+            font-size: 1em;
+            color: #a0aec0;
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            flex-wrap: wrap;
+        }
+        
+        .pillars-section {
+            margin-bottom: 40px;
+        }
+        
+        .section-title {
+            font-size: 1.8em;
+            color: #00d4ff;
+            text-align: center;
+            margin-bottom: 30px;
+            font-weight: 600;
+        }
+        
+        .pillars-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+            margin-bottom: 40px;
+        }
+        
+        .pillar {
+            background: linear-gradient(145deg, rgba(45, 55, 72, 0.8), rgba(26, 32, 44, 0.8));
+            border-radius: 15px;
+            padding: 25px;
+            text-align: center;
+            border: 2px solid transparent;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .pillar::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: var(--pillar-color);
+        }
+        
+        .pillar.red-team {
+            --pillar-color: #ff4757;
+        }
+        
+        .pillar.blue-team {
+            --pillar-color: #3742fa;
+        }
+        
+        .pillar.ai-recon {
+            --pillar-color: #00d4ff;
+        }
+        
+        .pillar:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+            border-color: var(--pillar-color);
+        }
+        
+        .pillar-icon {
+            font-size: 2.5em;
+            margin-bottom: 15px;
+            color: var(--pillar-color);
+        }
+        
+        .pillar-title {
+            font-size: 1.3em;
+            font-weight: 600;
+            color: var(--pillar-color);
+            margin-bottom: 15px;
+        }
+        
+        .pillar-description {
+            color: #e2e8f0;
+            line-height: 1.5;
+            font-size: 0.95em;
+        }
+        
+        .achievements-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+        
+        .achievement-card {
+            background: linear-gradient(145deg, rgba(0, 212, 255, 0.1), rgba(0, 153, 204, 0.1));
+            border-radius: 15px;
+            padding: 25px;
+            border: 1px solid rgba(0, 212, 255, 0.3);
+        }
+        
+        .achievement-title {
+            font-size: 1.2em;
+            color: #00d4ff;
+            font-weight: 600;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .achievement-list {
+            list-style: none;
+            color: #e2e8f0;
+        }
+        
+        .achievement-list li {
+            padding: 8px 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            font-size: 0.9em;
+            line-height: 1.4;
+        }
+        
+        .achievement-list li:last-child {
+            border-bottom: none;
+        }
+        
+        .achievement-list li::before {
+            content: '▸';
+            color: #00d4ff;
+            font-weight: bold;
+            margin-right: 10px;
+        }
+        
+        .tools-frameworks {
+            background: rgba(45, 55, 72, 0.6);
+            border-radius: 15px;
+            padding: 30px;
+            margin-bottom: 30px;
+        }
+        
+        .tools-title {
+            font-size: 1.4em;
+            color: #00d4ff;
+            text-align: center;
+            margin-bottom: 25px;
+            font-weight: 600;
+        }
+        
+        .tools-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+        
+        .tool-category {
+            text-align: center;
+        }
+        
+        .tool-category h4 {
+            color: #ffffff;
+            margin-bottom: 10px;
+            font-size: 1.1em;
+            font-weight: 600;
+        }
+        
+        .tool-list {
+            color: #a0aec0;
+            font-size: 0.85em;
+            line-height: 1.6;
+        }
+        
+        .certifications {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+            margin-top: 30px;
+        }
+        
+        .cert-badge {
+            background: linear-gradient(145deg, #00d4ff, #0099cc);
+            color: #1a1d23;
+            padding: 10px 20px;
+            border-radius: 25px;
+            font-weight: 600;
+            font-size: 0.9em;
+            box-shadow: 0 4px 15px rgba(0, 212, 255, 0.3);
+        }
+        
+        .cert-badge.in-progress {
+            background: linear-gradient(145deg, #ff6b6b, #ee5a52);
+            color: white;
+        }
+        
+        .stats-highlight {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            margin: 30px 0;
+        }
+        
+        .stat-card {
+            text-align: center;
+            background: rgba(0, 212, 255, 0.1);
+            border-radius: 10px;
+            padding: 20px;
+            border: 1px solid rgba(0, 212, 255, 0.3);
+        }
+        
+        .stat-number {
+            font-size: 2em;
+            font-weight: 700;
+            color: #00d4ff;
+            display: block;
+        }
+        
+        .stat-label {
+            color: #a0aec0;
+            font-size: 0.9em;
+            margin-top: 5px;
+        }
+        
+        @media (max-width: 768px) {
+            .pillars-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .achievements-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .tools-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .stats-highlight {
+                grid-template-columns: 1fr;
+            }
+            
+            .contact-info {
+                flex-direction: column;
+                gap: 10px;
+            }
+            
+            .name {
+                font-size: 2.2em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="portfolio-container">
+        <!-- Header Section -->
+        <div class="header">
+            <h1 class="name">PAUL HOLDER</h1>
+            <p class="tagline">Cybersecurity Engineer | Recon Architect | Automation Specialist</p>
+            <div class="contact-info">
+                <span>📧 paulwfholder@gmail.com</span>
+                <span>💼 LinkedIn: /in/paulholder</span>
+                <span>🌐 Portfolio: digitalsecurity.expert</span>
+            </div>
+        </div>
+
+        <!-- Three Pillars Section -->
+        <div class="pillars-section">
+            <h2 class="section-title">Core Expertise Pillars</h2>
+            <div class="pillars-grid">
+                <div class="pillar red-team">
+                    <div class="pillar-icon">🎯</div>
+                    <h3 class="pillar-title">Red Team (Offensive)</h3>
+                    <p class="pillar-description">Penetration testing, vulnerability assessment, and offensive security operations with automated reconnaissance frameworks.</p>
+                </div>
+                
+                <div class="pillar blue-team">
+                    <div class="pillar-icon">🛡️</div>
+                    <h3 class="pillar-title">Blue Team (Defensive)</h3>
+                    <p class="pillar-description">Secure code review, compliance auditing, GRC implementation, and defensive security architecture design.</p>
+                </div>
+                
+                <div class="pillar ai-recon">
+                    <div class="pillar-icon">🤖</div>
+                    <h3 class="pillar-title">AI Recon Tooling</h3>
+                    <p class="pillar-description">AI-augmented automation systems, intelligent threat triage, and custom security tool development.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Key Stats -->
+        <div class="stats-highlight">
+            <div class="stat-card">
+                <span class="stat-number">150+</span>
+                <span class="stat-label">Vulnerabilities Reviewed</span>
+            </div>
+            <div class="stat-card">
+                <span class="stat-number">200k+</span>
+                <span class="stat-label">Lines of Code Reviewed</span>
+            </div>
+            <div class="stat-card">
+                <span class="stat-number">12+</span>
+                <span class="stat-label">Security Certifications</span>
+            </div>
+        </div>
+
+        <!-- Achievements Grid -->
+        <div class="achievements-grid">
+            <div class="achievement-card">
+                <h3 class="achievement-title">🔧 Custom Security Systems</h3>
+                <ul class="achievement-list">
+                    <li><strong>Recon Bot:</strong> Automated OSINT & vulnerability reconnaissance using Bash/Python</li>
+                    <li><strong>V.A.U.L.T. System:</strong> AI-powered triage and automated security reporting</li>
+                    <li><strong>H.O.L.D.R. Framework:</strong> Hybrid Offensive-Logic Defensive Resonance methodology</li>
+                </ul>
+            </div>
+            
+            <div class="achievement-card">
+                <h3 class="achievement-title">💼 Professional Experience</h3>
+                <ul class="achievement-list">
+                    <li><strong>AI Secure Code Reviewer</strong> at Outlier - 200k+ lines reviewed</li>
+                    <li><strong>Bug Bounty Programs:</strong> Google VRP, HackerOne platform reviewer</li>
+                    <li><strong>PCI DSS Analyst</strong> at Baxter Clewis - Internal pentests & compliance audits</li>
+                    <li><strong>Published Author:</strong> "Stay Smart, Stay Safe" cybersecurity guide</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Tools & Frameworks -->
+        <div class="tools-frameworks">
+            <h3 class="tools-title">Technical Arsenal & Methodologies</h3>
+            <div class="tools-grid">
+                <div class="tool-category">
+                    <h4>Programming & Automation</h4>
+                    <div class="tool-list">
+                        Python/Bash Scripting<br>
+                        Nuclei Templates<br>
+                        Recon-ng Framework<br>
+                        CI/CD Integration<br>
+                        API Development
+                    </div>
+                </div>
+                
+                <div class="tool-category">
+                    <h4>Security Platforms</h4>
+                    <div class="tool-list">
+                        HackerOne/Bugcrowd<br>
+                        Cloud Security (AWS/Azure)<br>
+                        SIEM/SOAR Integration<br>
+                        Vulnerability Scanners<br>
+                        Penetration Testing Tools
+                    </div>
+                </div>
+                
+                <div class="tool-category">
+                    <h4>Compliance & Governance</h4>
+                    <div class="tool-list">
+                        PCI DSS Implementation<br>
+                        Secure SDLC Design<br>
+                        Risk Assessment<br>
+                        GRC Frameworks<br>
+                        Documentation Systems
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Certifications -->
+        <div class="certifications">
+            <div class="cert-badge">ISC2 Certified in Cybersecurity</div>
+            <div class="cert-badge">CompTIA Network+</div>
+            <div class="cert-badge">CompTIA Linux+</div>
+            <div class="cert-badge">Black Hat Python</div>
+            <div class="cert-badge">CVSS v4.0 (FIRST)</div>
+            <div class="cert-badge">Qualys VMDR</div>
+            <div class="cert-badge in-progress">CEH (In Progress)</div>
+        </div>
+        
+        <!-- Specialized Certificates -->
+        <div style="margin-top: 30px;">
+            <h3 style="text-align: center; color: #00d4ff; font-size: 1.3em; margin-bottom: 20px;">Specialized Security Certificates</h3>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px;">
+                <div style="background: rgba(255, 107, 107, 0.1); padding: 15px; border-radius: 10px; text-align: center; border: 1px solid rgba(255, 107, 107, 0.3);">
+                    <div style="color: #ff6b6b; font-weight: 600; margin-bottom: 5px;">🎯 Bug Hunting</div>
+                    <div style="color: #e2e8f0; font-size: 0.85em;">Android Bug Bounty</div>
+                </div>
+                <div style="background: rgba(116, 185, 255, 0.1); padding: 15px; border-radius: 10px; text-align: center; border: 1px solid rgba(116, 185, 255, 0.3);">
+                    <div style="color: #74b9ff; font-weight: 600; margin-bottom: 5px;">📱 Mobile Security</div>
+                    <div style="color: #e2e8f0; font-size: 0.85em;">Android Security</div>
+                </div>
+                <div style="background: rgba(255, 195, 18, 0.1); padding: 15px; border-radius: 10px; text-align: center; border: 1px solid rgba(255, 195, 18, 0.3);">
+                    <div style="color: #ffc312; font-weight: 600; margin-bottom: 5px;">💉 Web Security</div>
+                    <div style="color: #e2e8f0; font-size: 0.85em;">SQL Injection Attacks</div>
+                </div>
+                <div style="background: rgba(129, 236, 236, 0.1); padding: 15px; border-radius: 10px; text-align: center; border: 1px solid rgba(129, 236, 236, 0.3);">
+                    <div style="color: #81ecec; font-weight: 600; margin-bottom: 5px;">🕵️ OSINT</div>
+                    <div style="color: #e2e8f0; font-size: 0.85em;">Dark Web & Cryptocurrency</div>
+                </div>
+                <div style="background: rgba(162, 155, 254, 0.1); padding: 15px; border-radius: 10px; text-align: center; border: 1px solid rgba(162, 155, 254, 0.3);">
+                    <div style="color: #a29bfe; font-weight: 600; margin-bottom: 5px;">🔍 Digital Forensics</div>
+                    <div style="color: #e2e8f0; font-size: 0.85em;">DoD Cyber Sentinel</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
