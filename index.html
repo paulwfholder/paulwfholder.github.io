@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Paul Holder - Cybersecurity Portfolio</title>
+    <title>Paul Holder - AI Security Architect</title>
     <style>
         * {
             margin: 0;
@@ -51,6 +51,21 @@
             font-weight: 600;
             margin-bottom: 15px;
         }
+
+        .value-proposition {
+            font-size: 1.1em;
+            color: #e2e8f0;
+            max-width: 800px;
+            margin: 15px auto;
+            line-height: 1.5;
+        }
+
+        .enterprise-highlight {
+            font-size: 1em;
+            color: #00d4ff;
+            margin: 10px auto;
+            font-weight: 500;
+        }
         
         .contact-info {
             font-size: 1em;
@@ -59,6 +74,51 @@
             justify-content: center;
             gap: 30px;
             flex-wrap: wrap;
+            margin-top: 20px;
+        }
+
+        .key-achievements {
+            background: linear-gradient(145deg, rgba(0, 212, 255, 0.1), rgba(0, 153, 204, 0.1));
+            border-radius: 15px;
+            padding: 25px;
+            margin-bottom: 40px;
+            border: 1px solid rgba(0, 212, 255, 0.3);
+        }
+
+        .achievements-title {
+            font-size: 1.4em;
+            color: #00d4ff;
+            text-align: center;
+            margin-bottom: 20px;
+            font-weight: 600;
+        }
+
+        .achievements-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            text-align: center;
+        }
+
+        .achievement-item {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 20px;
+            border-radius: 10px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .achievement-number {
+            font-size: 2.2em;
+            font-weight: 700;
+            color: #00d4ff;
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        .achievement-desc {
+            color: #a0aec0;
+            font-size: 0.9em;
+            line-height: 1.4;
         }
         
         .pillars-section {
@@ -101,16 +161,16 @@
             background: var(--pillar-color);
         }
         
-        .pillar.red-team {
+        .pillar.ai-orchestration {
+            --pillar-color: #00d4ff;
+        }
+        
+        .pillar.security-automation {
             --pillar-color: #ff4757;
         }
         
-        .pillar.blue-team {
-            --pillar-color: #3742fa;
-        }
-        
-        .pillar.ai-recon {
-            --pillar-color: #00d4ff;
+        .pillar.enterprise-systems {
+            --pillar-color: #2ed573;
         }
         
         .pillar:hover {
@@ -137,23 +197,33 @@
             line-height: 1.5;
             font-size: 0.95em;
         }
-        
-        .achievements-grid {
+
+        .featured-projects {
+            margin-bottom: 40px;
+        }
+
+        .projects-grid {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
             gap: 30px;
-            margin-bottom: 40px;
         }
-        
-        .achievement-card {
-            background: linear-gradient(145deg, rgba(0, 212, 255, 0.1), rgba(0, 153, 204, 0.1));
+
+        .project-card {
+            background: linear-gradient(145deg, rgba(45, 55, 72, 0.8), rgba(26, 32, 44, 0.8));
             border-radius: 15px;
             padding: 25px;
-            border: 1px solid rgba(0, 212, 255, 0.3);
+            border: 1px solid rgba(0, 212, 255, 0.2);
+            transition: all 0.3s ease;
         }
-        
-        .achievement-title {
-            font-size: 1.2em;
+
+        .project-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+            border-color: #00d4ff;
+        }
+
+        .project-title {
+            font-size: 1.3em;
             color: #00d4ff;
             font-weight: 600;
             margin-bottom: 15px;
@@ -161,94 +231,31 @@
             align-items: center;
             gap: 10px;
         }
-        
-        .achievement-list {
-            list-style: none;
+
+        .project-description {
             color: #e2e8f0;
+            line-height: 1.5;
+            margin-bottom: 15px;
         }
-        
-        .achievement-list li {
-            padding: 8px 0;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-            font-size: 0.9em;
-            line-height: 1.4;
-        }
-        
-        .achievement-list li:last-child {
-            border-bottom: none;
-        }
-        
-        .achievement-list li::before {
-            content: '▸';
-            color: #00d4ff;
-            font-weight: bold;
-            margin-right: 10px;
-        }
-        
-        .tools-frameworks {
-            background: rgba(45, 55, 72, 0.6);
-            border-radius: 15px;
-            padding: 30px;
-            margin-bottom: 30px;
-        }
-        
-        .tools-title {
-            font-size: 1.4em;
-            color: #00d4ff;
-            text-align: center;
-            margin-bottom: 25px;
-            font-weight: 600;
-        }
-        
-        .tools-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 20px;
-        }
-        
-        .tool-category {
-            text-align: center;
-        }
-        
-        .tool-category h4 {
-            color: #ffffff;
-            margin-bottom: 10px;
-            font-size: 1.1em;
-            font-weight: 600;
-        }
-        
-        .tool-list {
-            color: #a0aec0;
-            font-size: 0.85em;
-            line-height: 1.6;
-        }
-        
-        .certifications {
+
+        .project-tech {
             display: flex;
-            justify-content: center;
-            gap: 20px;
             flex-wrap: wrap;
-            margin-top: 30px;
+            gap: 8px;
         }
-        
-        .cert-badge {
-            background: linear-gradient(145deg, #00d4ff, #0099cc);
-            color: #1a1d23;
-            padding: 10px 20px;
-            border-radius: 25px;
-            font-weight: 600;
-            font-size: 0.9em;
-            box-shadow: 0 4px 15px rgba(0, 212, 255, 0.3);
-        }
-        
-        .cert-badge.in-progress {
-            background: linear-gradient(145deg, #ff6b6b, #ee5a52);
-            color: white;
+
+        .tech-tag {
+            background: rgba(0, 212, 255, 0.2);
+            color: #00d4ff;
+            padding: 4px 12px;
+            border-radius: 12px;
+            font-size: 0.8em;
+            font-weight: 500;
         }
         
         .stats-highlight {
             display: grid;
-            grid-template-columns: repeat(3, 1fr);
+            grid-template-columns: repeat(4, 1fr);
             gap: 20px;
             margin: 30px 0;
         }
@@ -273,9 +280,36 @@
             font-size: 0.9em;
             margin-top: 5px;
         }
+
+        .certifications {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+            margin-top: 30px;
+        }
+        
+        .cert-badge {
+            background: linear-gradient(145deg, #00d4ff, #0099cc);
+            color: #1a1d23;
+            padding: 10px 20px;
+            border-radius: 25px;
+            font-weight: 600;
+            font-size: 0.9em;
+            box-shadow: 0 4px 15px rgba(0, 212, 255, 0.3);
+        }
+        
+        .cert-badge.in-progress {
+            background: linear-gradient(145deg, #ff6b6b, #ee5a52);
+            color: white;
+        }
         
         @media (max-width: 768px) {
             .pillars-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .projects-grid {
                 grid-template-columns: 1fr;
             }
             
@@ -283,12 +317,8 @@
                 grid-template-columns: 1fr;
             }
             
-            .tools-grid {
-                grid-template-columns: 1fr;
-            }
-            
             .stats-highlight {
-                grid-template-columns: 1fr;
+                grid-template-columns: repeat(2, 1fr);
             }
             
             .contact-info {
@@ -307,7 +337,15 @@
         <!-- Header Section -->
         <div class="header">
             <h1 class="name">PAUL HOLDER</h1>
-            <p class="tagline">Cybersecurity Engineer | Recon Architect | Automation Specialist</p>
+            <p class="tagline">AI Security Architect & Multi-Agent Systems Engineer</p>
+            <p class="value-proposition">
+                Specializing in enterprise AI validation frameworks and intelligent security automation. 
+                Expert in multi-agent orchestration, AI model security, and systematic approaches to eliminating 
+                hallucination in production AI systems.
+            </p>
+            <p class="enterprise-highlight">
+                Trusted by Fortune 500 clients including Meta | Founder of The Digital Sentinel
+            </p>
             <div class="contact-info">
                 <span>📧 paulwfholder@gmail.com</span>
                 <span>💼 LinkedIn: /in/paulwfholder</span>
@@ -315,39 +353,193 @@
             </div>
         </div>
 
+        <!-- Key Achievements -->
+        <div class="key-achievements">
+            <h3 class="achievements-title">Proven AI Security Impact</h3>
+            <div class="achievements-grid">
+                <div class="achievement-item">
+                    <span class="achievement-number">95%</span>
+                    <span class="achievement-desc">Consistency achieved across multi-agent AI workflows</span>
+                </div>
+                <div class="achievement-item">
+                    <span class="achievement-number">60%</span>
+                    <span class="achievement-desc">Reduction in reconnaissance time through AI orchestration</span>
+                </div>
+                <div class="achievement-item">
+                    <span class="achievement-number">90%</span>
+                    <span class="achievement-desc">Reduction in AI hallucination through systematic validation</span>
+                </div>
+            </div>
+        </div>
+
         <!-- Three Pillars Section -->
         <div class="pillars-section">
-            <h2 class="section-title">Core Expertise Pillars</h2>
+            <h2 class="section-title">Core AI Security Expertise</h2>
             <div class="pillars-grid">
-                <div class="pillar red-team">
-                    <div class="pillar-icon">🎯</div>
-                    <h3 class="pillar-title">Red Team (Offensive)</h3>
-                    <p class="pillar-description">Penetration testing, vulnerability assessment, and offensive security operations with automated reconnaissance frameworks.</p>
-                </div>
-                
-                <div class="pillar blue-team">
-                    <div class="pillar-icon">🛡️</div>
-                    <h3 class="pillar-title">Blue Team (Defensive)</h3>
-                    <p class="pillar-description">Secure code review, compliance auditing, GRC implementation, and defensive security architecture design.</p>
-                </div>
-                
-                <div class="pillar ai-recon">
+                <div class="pillar ai-orchestration">
                     <div class="pillar-icon">🤖</div>
-                    <h3 class="pillar-title">AI Recon Tooling</h3>
-                    <p class="pillar-description">AI-augmented automation systems, intelligent threat triage, and custom security tool development.</p>
+                    <h3 class="pillar-title">Multi-Agent AI Orchestration</h3>
+                    <p class="pillar-description">Systematic coordination of multiple AI agents with validation protocols, memory management, and consistency enforcement across complex data relationships.</p>
                 </div>
+                
+                <div class="pillar security-automation">
+                    <div class="pillar-icon">🛡️</div>
+                    <h3 class="pillar-title">AI-Augmented Security</h3>
+                    <p class="pillar-description">Intelligent threat detection, automated vulnerability assessment, and AI-powered security workflows that enhance both speed and accuracy.</p>
+                </div>
+                
+                <div class="pillar enterprise-systems">
+                    <div class="pillar-icon">⚙️</div>
+                    <h3 class="pillar-title">Enterprise AI Governance</h3>
+                    <p class="pillar-description">Production-ready AI validation frameworks, quality assurance protocols, and systematic approaches to AI model security and compliance.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Featured Projects -->
+        <div class="featured-projects">
+            <h2 class="section-title">Featured AI Security Projects</h2>
+            <div class="projects-grid">
+                <div class="project-card">
+                    <h3 class="project-title">🏗️ V.A.U.L.T. Command System</h3>
+                    <p class="project-description">
+                        AI-augmented security orchestration platform with 6-layer architecture. Integrates intelligent reconnaissance, 
+                        automated validation, and AI-driven threat triage. Achieved 60% reduction in assessment time through 
+                        machine learning validation and multi-platform integration.
+                    </p>
+                    <div class="project-tech">
+                        <span class="tech-tag">Multi-Agent AI</span>
+                        <span class="tech-tag">Python/Bash</span>
+                        <span class="tech-tag">Claude/GPT Integration</span>
+                        <span class="tech-tag">Automated Reporting</span>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <h3 class="project-title">🧠 Multi-Agent Consistency Framework</h3>
+                    <p class="project-description">
+                        Enterprise AI validation system eliminating hallucination through systematic prompt engineering, 
+                        memory anchors, and cross-reference validation. Achieved 95% consistency across complex 
+                        multi-agent workflows.
+                    </p>
+                    <div class="project-tech">
+                        <span class="tech-tag">AI Validation</span>
+                        <span class="tech-tag">Quality Assurance</span>
+                        <span class="tech-tag">Prompt Engineering</span>
+                        <span class="tech-tag">Schema Design</span>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <h3 class="project-title">🔍 AI-Enhanced Security Automation</h3>
+                    <p class="project-description">
+                        Production security framework with intelligent false positive filtering, automated vulnerability 
+                        classification, and machine learning-based threat analysis. Deployed across multiple enterprise 
+                        client environments including Fortune 500 implementations.
+                    </p>
+                    <div class="project-tech">
+                        <span class="tech-tag">ML Classification</span>
+                        <span class="tech-tag">AWS/Azure/GCP</span>
+                        <span class="tech-tag">Enterprise Deployment</span>
+                        <span class="tech-tag">Threat Intelligence</span>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <h3 class="project-title">🏢 The Digital Sentinel</h3>
+                    <p class="project-description">
+                        Founded AI security consultancy specializing in custom automation solutions for creative organizations 
+                        and technical teams. Delivering AI-augmented security frameworks that reduce incident response time 
+                        by 40% through intelligent triage algorithms.
+                    </p>
+                    <div class="project-tech">
+                        <span class="tech-tag">AI Consulting</span>
+                        <span class="tech-tag">Custom Frameworks</span>
+                        <span class="tech-tag">Enterprise Solutions</span>
+                        <span class="tech-tag">Automation</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Published Work & Thought Leadership -->
+        <div style="margin-bottom: 40px;">
+            <h2 class="section-title">Published Technical Content & Thought Leadership</h2>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 25px;">
+                <div style="background: linear-gradient(145deg, rgba(45, 55, 72, 0.8), rgba(26, 32, 44, 0.8)); border-radius: 15px; padding: 25px; border: 1px solid rgba(0, 212, 255, 0.2);">
+                    <h3 style="color: #00d4ff; font-size: 1.2em; margin-bottom: 15px; display: flex; align-items: center; gap: 10px;">
+                        📚 Cybersecurity Author
+                    </h3>
+                    <p style="color: #e2e8f0; line-height: 1.5; margin-bottom: 15px;">
+                        Published "Stay Smart, Stay Safe" - comprehensive cybersecurity guide available on Amazon. 
+                        Used as training resource across educational and corporate environments.
+                    </p>
+                    <div style="display: flex; flex-wrap: wrap; gap: 8px;">
+                        <span class="tech-tag">Published Author</span>
+                        <span class="tech-tag">Amazon</span>
+                        <span class="tech-tag">Training Resource</span>
+                    </div>
+                </div>
+
+                <div style="background: linear-gradient(145deg, rgba(45, 55, 72, 0.8), rgba(26, 32, 44, 0.8)); border-radius: 15px; padding: 25px; border: 1px solid rgba(0, 212, 255, 0.2);">
+                    <h3 style="color: #00d4ff; font-size: 1.2em; margin-bottom: 15px; display: flex; align-items: center; gap: 10px;">
+                        🎓 Microsoft Learning Path
+                    </h3>
+                    <p style="color: #e2e8f0; line-height: 1.5; margin-bottom: 15px;">
+                        Contributor to Microsoft enterprise training platform covering PowerBI, PowerShell, and automation. 
+                        Global practitioner education with enterprise validation.
+                    </p>
+                    <div style="display: flex; flex-wrap: wrap; gap: 8px;">
+                        <span class="tech-tag">Microsoft Platform</span>
+                        <span class="tech-tag">Enterprise Training</span>
+                        <span class="tech-tag">Global Reach</span>
+                    </div>
+                </div>
+
+                <div style="background: linear-gradient(145deg, rgba(45, 55, 72, 0.8), rgba(26, 32, 44, 0.8)); border-radius: 15px; padding: 25px; border: 1px solid rgba(0, 212, 255, 0.2);">
+                    <h3 style="color: #00d4ff; font-size: 1.2em; margin-bottom: 15px; display: flex; align-items: center; gap: 10px;">
+                        ✍️ Technical Articles
+                    </h3>
+                    <p style="color: #e2e8f0; line-height: 1.5; margin-bottom: 15px;">
+                        Published technical insights on AI security methodologies, multi-agent orchestration, and industry 
+                        analysis including CrowdStrike incident response frameworks.
+                    </p>
+                    <div style="display: flex; flex-wrap: wrap; gap: 8px;">
+                        <span class="tech-tag">AI Security</span>
+                        <span class="tech-tag">Industry Analysis</span>
+                        <span class="tech-tag">Thought Leadership</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Contact & Availability -->
+        <div style="background: linear-gradient(145deg, rgba(0, 212, 255, 0.1), rgba(0, 153, 204, 0.1)); border-radius: 15px; padding: 30px; margin-bottom: 40px; border: 1px solid rgba(0, 212, 255, 0.3); text-align: center;">
+            <h3 style="color: #00d4ff; font-size: 1.4em; margin-bottom: 20px; font-weight: 600;">Available for AI Security Consulting & Enterprise Roles</h3>
+            <p style="color: #e2e8f0; font-size: 1.1em; line-height: 1.5; margin-bottom: 20px;">
+                Open to enterprise AI security positions and custom automation consulting engagements. 
+                Let's discuss your AI validation challenges and multi-agent orchestration needs.
+            </p>
+            <div style="display: flex; justify-content: center; gap: 20px; flex-wrap: wrap;">
+                <span style="background: rgba(0, 212, 255, 0.2); color: #00d4ff; padding: 8px 16px; border-radius: 20px; font-weight: 500;">Enterprise AI Security</span>
+                <span style="background: rgba(0, 212, 255, 0.2); color: #00d4ff; padding: 8px 16px; border-radius: 20px; font-weight: 500;">Custom Automation</span>
+                <span style="background: rgba(0, 212, 255, 0.2); color: #00d4ff; padding: 8px 16px; border-radius: 20px; font-weight: 500;">AI Validation Consulting</span>
             </div>
         </div>
 
         <!-- Key Stats -->
         <div class="stats-highlight">
             <div class="stat-card">
-                <span class="stat-number">150+</span>
-                <span class="stat-label">Vulnerabilities Reviewed</span>
+                <span class="stat-number">200k+</span>
+                <span class="stat-label">Lines of AI/ML Code Secured</span>
             </div>
             <div class="stat-card">
-                <span class="stat-number">200k+</span>
-                <span class="stat-label">Lines of Code Reviewed</span>
+                <span class="stat-number">150+</span>
+                <span class="stat-label">Security Vulnerabilities Assessed</span>
+            </div>
+            <div class="stat-card">
+                <span class="stat-number">11+</span>
+                <span class="stat-label">Years Security Experience</span>
             </div>
             <div class="stat-card">
                 <span class="stat-number">12+</span>
@@ -355,101 +547,50 @@
             </div>
         </div>
 
-        <!-- Achievements Grid -->
-        <div class="achievements-grid">
-            <div class="achievement-card">
-                <h3 class="achievement-title">🔧 Custom Security Systems</h3>
-                <ul class="achievement-list">
-                    <li><strong>Recon Bot:</strong> Automated OSINT & vulnerability reconnaissance using Bash/Python</li>
-                    <li><strong>V.A.U.L.T. System:</strong> AI-powered triage and automated security reporting</li>
-                    <li><strong>H.O.L.D.R. Framework:</strong> Hybrid Offensive-Logic Defensive Resonance methodology</li>
-                </ul>
-            </div>
-            
-            <div class="achievement-card">
-                <h3 class="achievement-title">💼 Professional Experience</h3>
-                <ul class="achievement-list">
-                    <li><strong>AI Secure Code Reviewer</strong> at Outlier - 200k+ lines reviewed</li>
-                    <li><strong>Bug Bounty Programs:</strong> Google VRP, HackerOne platform reviewer</li>
-                    <li><strong>PCI DSS Analyst</strong> at Baxter Clewis - Internal pentests & compliance audits</li>
-                    <li><strong>Published Author:</strong> "Stay Smart, Stay Safe" cybersecurity guide</li>
-                </ul>
-            </div>
-        </div>
-
-        <!-- Tools & Frameworks -->
-        <div class="tools-frameworks">
-            <h3 class="tools-title">Technical Arsenal & Methodologies</h3>
-            <div class="tools-grid">
-                <div class="tool-category">
-                    <h4>Programming & Automation</h4>
-                    <div class="tool-list">
-                        Python/Bash Scripting<br>
-                        Nuclei Templates<br>
-                        Recon-ng Framework<br>
-                        CI/CD Integration<br>
-                        API Development
-                    </div>
-                </div>
-                
-                <div class="tool-category">
-                    <h4>Security Platforms</h4>
-                    <div class="tool-list">
-                        HackerOne/Bugcrowd<br>
-                        Cloud Security (AWS/Azure)<br>
-                        SIEM/SOAR Integration<br>
-                        Vulnerability Scanners<br>
-                        Penetration Testing Tools
-                    </div>
-                </div>
-                
-                <div class="tool-category">
-                    <h4>Compliance & Governance</h4>
-                    <div class="tool-list">
-                        PCI DSS Implementation<br>
-                        Secure SDLC Design<br>
-                        Risk Assessment<br>
-                        GRC Frameworks<br>
-                        Documentation Systems
-                    </div>
-                </div>
-            </div>
-        </div>
-
         <!-- Certifications -->
         <div class="certifications">
             <div class="cert-badge">ISC2 Certified in Cybersecurity</div>
-            <div class="cert-badge">CompTIA Network+</div>
-            <div class="cert-badge">CompTIA Linux+</div>
-            <div class="cert-badge">Black Hat Python</div>
+            <div class="cert-badge">Network+ (Simplilearn)</div>
+            <div class="cert-badge">Linux+ (Simplilearn)</div>
             <div class="cert-badge">CVSS v4.0 (FIRST)</div>
             <div class="cert-badge">Qualys VMDR</div>
+            <div class="cert-badge">AI Security Specialist</div>
             <div class="cert-badge in-progress">CEH (In Progress)</div>
         </div>
+
+        <!-- Contact & Availability -->
+        <div style="background: linear-gradient(145deg, rgba(0, 212, 255, 0.1), rgba(0, 153, 204, 0.1)); border-radius: 15px; padding: 30px; margin: 40px 0; border: 1px solid rgba(0, 212, 255, 0.3); text-align: center;">
+            <h3 style="color: #00d4ff; font-size: 1.4em; margin-bottom: 20px; font-weight: 600;">Available for AI Security Consulting & Enterprise Roles</h3>
+            <p style="color: #e2e8f0; font-size: 1.1em; line-height: 1.5; margin-bottom: 20px;">
+                Open to enterprise AI security positions and custom automation consulting engagements. 
+                Let's discuss your AI validation challenges and multi-agent orchestration needs.
+            </p>
+            <div style="display: flex; justify-content: center; gap: 20px; flex-wrap: wrap;">
+                <span style="background: rgba(0, 212, 255, 0.2); color: #00d4ff; padding: 8px 16px; border-radius: 20px; font-weight: 500;">Enterprise AI Security</span>
+                <span style="background: rgba(0, 212, 255, 0.2); color: #00d4ff; padding: 8px 16px; border-radius: 20px; font-weight: 500;">Custom Automation</span>
+                <span style="background: rgba(0, 212, 255, 0.2); color: #00d4ff; padding: 8px 16px; border-radius: 20px; font-weight: 500;">AI Validation Consulting</span>
+            </div>
+        </div>
         
-        <!-- Specialized Certificates -->
-        <div style="margin-top: 30px;">
-            <h3 style="text-align: center; color: #00d4ff; font-size: 1.3em; margin-bottom: 20px;">Specialized Security Certificates</h3>
-            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px;">
-                <div style="background: rgba(255, 107, 107, 0.1); padding: 15px; border-radius: 10px; text-align: center; border: 1px solid rgba(255, 107, 107, 0.3);">
-                    <div style="color: #ff6b6b; font-weight: 600; margin-bottom: 5px;">🎯 Bug Hunting</div>
-                    <div style="color: #e2e8f0; font-size: 0.85em;">Android Bug Bounty</div>
+        <!-- Specialized Expertise -->
+        <div style="margin-top: 40px;">
+            <h3 style="text-align: center; color: #00d4ff; font-size: 1.4em; margin-bottom: 25px; font-weight: 600;">AI Security Specializations</h3>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px;">
+                <div style="background: rgba(0, 212, 255, 0.1); padding: 20px; border-radius: 12px; text-align: center; border: 1px solid rgba(0, 212, 255, 0.3);">
+                    <div style="color: #00d4ff; font-weight: 600; margin-bottom: 8px; font-size: 1.1em;">🧠 Multi-Agent Orchestration</div>
+                    <div style="color: #e2e8f0; font-size: 0.9em; line-height: 1.4;">Complex AI system coordination with validation protocols and memory management</div>
                 </div>
-                <div style="background: rgba(116, 185, 255, 0.1); padding: 15px; border-radius: 10px; text-align: center; border: 1px solid rgba(116, 185, 255, 0.3);">
-                    <div style="color: #74b9ff; font-weight: 600; margin-bottom: 5px;">📱 Mobile Security</div>
-                    <div style="color: #e2e8f0; font-size: 0.85em;">Android Security</div>
+                <div style="background: rgba(255, 107, 107, 0.1); padding: 20px; border-radius: 12px; text-align: center; border: 1px solid rgba(255, 107, 107, 0.3);">
+                    <div style="color: #ff6b6b; font-weight: 600; margin-bottom: 8px; font-size: 1.1em;">🛡️ AI Model Security</div>
+                    <div style="color: #e2e8f0; font-size: 0.9em; line-height: 1.4;">Production AI/ML security assessment and adversarial testing methodologies</div>
                 </div>
-                <div style="background: rgba(255, 195, 18, 0.1); padding: 15px; border-radius: 10px; text-align: center; border: 1px solid rgba(255, 195, 18, 0.3);">
-                    <div style="color: #ffc312; font-weight: 600; margin-bottom: 5px;">💉 Web Security</div>
-                    <div style="color: #e2e8f0; font-size: 0.85em;">SQL Injection Attacks</div>
+                <div style="background: rgba(46, 213, 115, 0.1); padding: 20px; border-radius: 12px; text-align: center; border: 1px solid rgba(46, 213, 115, 0.3);">
+                    <div style="color: #2ed573; font-weight: 600; margin-bottom: 8px; font-size: 1.1em;">⚙️ Enterprise AI Governance</div>
+                    <div style="color: #e2e8f0; font-size: 0.9em; line-height: 1.4;">Systematic quality assurance and validation frameworks for AI systems at scale</div>
                 </div>
-                <div style="background: rgba(129, 236, 236, 0.1); padding: 15px; border-radius: 10px; text-align: center; border: 1px solid rgba(129, 236, 236, 0.3);">
-                    <div style="color: #81ecec; font-weight: 600; margin-bottom: 5px;">🕵️ OSINT</div>
-                    <div style="color: #e2e8f0; font-size: 0.85em;">Dark Web & Cryptocurrency</div>
-                </div>
-                <div style="background: rgba(162, 155, 254, 0.1); padding: 15px; border-radius: 10px; text-align: center; border: 1px solid rgba(162, 155, 254, 0.3);">
-                    <div style="color: #a29bfe; font-weight: 600; margin-bottom: 5px;">🔍 Digital Forensics</div>
-                    <div style="color: #e2e8f0; font-size: 0.85em;">DoD Cyber Sentinel</div>
+                <div style="background: rgba(255, 195, 18, 0.1); padding: 20px; border-radius: 12px; text-align: center; border: 1px solid rgba(255, 195, 18, 0.3);">
+                    <div style="color: #ffc312; font-weight: 600; margin-bottom: 8px; font-size: 1.1em;">🤖 Intelligent Automation</div>
+                    <div style="color: #e2e8f0; font-size: 0.9em; line-height: 1.4;">AI-augmented security workflows with automated threat detection and response</div>
                 </div>
             </div>
         </div>
